@@ -34,4 +34,15 @@ public class Booking {
     public long getEndTime() {
         return endTime;
     }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingID='" + bookingID + '\'' +
+                ", userId='" + userId + '\'' +
+                ", conferenceRoomId='" + conferenceRoomId + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                '}';
+    }
 }
