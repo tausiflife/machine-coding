@@ -55,27 +55,21 @@ public class Boundary {
      * @return
      */
     public boolean intersects(Boundary range) {
-        if(this.getTopRightY() <  range.getBottomLeftY()
-                || this.getBottomLeftY() > range.getTopRightY())
+        if(this.getTopRightPoint().getY() <  range.getBottomLeftPoint().getY()
+                || this.getBottomLeftPoint().getY() > range.getTopRightPoint().getY())
         return false;
 
-        if(this.getTopRightX() <  range.getBottomLeftX()
-                || this.getBottomLeftX() > range.getTopRightX())
+        if(this.getTopRightPoint().getX() <  range.getBottomLeftPoint().getX()
+                || this.getBottomLeftPoint().getX() > range.getTopRightPoint().getX())
             return false;
         return true;
     }
 
-    public double getTopRightY() {
-        return this.y + this.h/2;
-    }
-    public double getTopRightX() {
-        return this.x + this.w/2;
+    public Point getTopRightPoint() {
+        return new Point(this.x + this.w/2, this.y + this.h/2);
     }
 
-    public double getBottomLeftY() {
-        return this.y - this.h/2;
-    }
-    public double getBottomLeftX() {
-        return this.x - this.w/2;
+    public Point getBottomLeftPoint() {
+        return new Point(this.x - this.w/2, this.y - this.h/2);
     }
 }
